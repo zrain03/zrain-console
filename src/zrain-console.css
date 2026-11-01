@@ -1,0 +1,236 @@
+﻿:root { --zr-navy:#172433; --zr-terra:#b95136; --zr-terra-deep:#963d28; }
+/* Zrain Console v4.1.0. Every hosted product starts in Mobile View.
+   Only the presentation is scaled to fit, not the browser zoom. */
+.zrain-console {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  width: min(1470px, calc(100vw - 20px));
+  max-width: none;
+  height: calc(100dvh - 20px);
+  max-height: none;
+  overflow: hidden;
+  border: 1px solid #e6cfc1;
+  border-radius: 18px;
+  color: var(--zr-navy);
+  background: #fffaf6;
+  box-shadow: 0 35px 105px rgba(24, 35, 43, .23);
+}
+.zrain-console::backdrop { background: rgba(30,39,47,.50); backdrop-filter: blur(4px); }
+body:has(.zrain-console[open]) { overflow: hidden; }
+.console-shell { display: flex; flex-direction: column; min-height: 0; height: 100%; overflow: hidden; background: #fffaf6; }
+.console-toolbar { flex: 0 0 auto; min-height: 66px; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; border-bottom: 1px solid #ecdbd0; background: #fffcfa; }
+.console-product { display: flex; min-width: 0; gap: 11px; align-items: center; }
+.console-product img { flex-shrink: 0; width: 38px; height: 38px; object-fit: cover; border-radius: 10px; background: #fff2e9; }
+.console-product-copy { min-width: 0; }
+.console-kicker { color: #a95b41; font-size: 9px; line-height: 1.3; letter-spacing: .08em; font-weight: 800; text-transform: uppercase; white-space: nowrap; }
+.console-kicker span { margin: 0 3px; }
+.console-product h2 { font-size: 17px; letter-spacing: -.035em; font-weight: 800; line-height: 1.2; margin: 3px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.console-actions { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
+.console-tool { min-height: 38px; min-width: 38px; padding: 8px 11px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid #e9d7ca; color: #815445; background: #fff; border-radius: 10px; text-decoration: none; font-size: 12px; font-weight: 700; cursor: pointer; }
+.console-tool:hover { background: #fff0e5; border-color: #d6a994; }
+.console-tool:focus-visible { outline: 3px solid #d99b80; outline-offset: 2px; }
+.console-tool > span:first-child[aria-hidden] { font-size: 18px; line-height: 1; }
+.console-open { background: var(--zr-terra); border-color: var(--zr-terra); color: #fff; }
+.console-open:hover { background: var(--zr-terra-deep); color: #fff; }
+.console-close { margin-left: 3px; font-size: 17px; }
+.console-info { flex: 0 0 auto; min-height: 40px; padding: 9px 19px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px 16px; color: #78808a; border-bottom: 1px solid #efe4dc; background: #fffaf6; }
+.console-info p { margin: 0; font-size: 11px; line-height: 1.4; text-align: center; }
+.console-info a { color: var(--zr-terra); font-size: 11px; font-weight: 800; white-space: nowrap; text-decoration: none; }
+.console-info a:hover { text-decoration: underline; }
+
+/* Available on every web edition, including games. Mobile is the default. */
+.console-view-switch { display: inline-flex; align-items: center; flex: 0 0 auto; gap: 4px; padding: 4px; border: 1px solid #e9d7ca; border-radius: 11px; background: #fff; }
+.console-view-caption { padding: 0 8px; font-size: 9px; font-weight: 850; letter-spacing: .09em; color: #926c5c; }
+.console-view-button { min-height: 32px; padding: 7px 13px; border: 0; border-radius: 7px; color: #806455; background: transparent; font-size: 11px; font-weight: 750; cursor: pointer; }
+.console-view-button[aria-pressed="true"] { background: var(--zr-terra); color: #fff; box-shadow: 0 2px 7px rgba(185,81,54,.13); }
+.console-view-button:not([aria-pressed="true"]):hover { background: #fff0e6; }
+.console-view-button:focus-visible { outline: 3px solid #d99b80; outline-offset: 2px; }
+
+.console-stage { min-height: 0; min-width: 0; flex: 1 1 auto; padding: 6px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(145deg, #fff4ec, #fffaf6 48%, #f6e7dd); }
+.console-viewer { flex: none; position: relative; overflow: hidden; border-radius: 14px; border: 1px solid #e1c6b5; background: #fff; box-shadow: 0 10px 34px rgba(75,45,30,.10); }
+.console-viewer iframe { display: block; position: absolute; top: 0; left: 0; padding: 0; margin: 0; border: 0; background: #fff; transform-origin: top left; }
+.console-shell[data-view="mobile"] .console-viewer { border-radius: 18px; }
+.console-shell[data-view="desktop"] .console-stage { padding: 8px; background: #f8eee7; }
+.console-shell[data-view="desktop"] .console-viewer { border-radius: 11px; box-shadow: 0 10px 24px rgba(75,45,30,.08); }
+.console-note { flex: 0 0 auto; min-height: 31px; padding: 8px 12px; text-align: center; color: #8b807a; font-size: 10px; line-height: 1.35; background: #fffaf6; border-top: 1px solid #eedfd4; }
+.console-note strong { color: #a74d34; }
+.console-shell:fullscreen { width: 100vw; height: 100dvh; border: 0; background: #fffaf6; }
+@media (max-width: 780px) {
+  .console-tool .tool-label { display: none; }
+  .console-toolbar { padding: 9px 10px; min-height: 59px; gap: 7px; }
+  .console-product img { width: 32px; height: 32px; }
+  .console-product h2 { font-size: 14px; }
+  .console-kicker { font-size: 8px; }
+  .console-kicker span { display: none; }
+  .console-tool { min-width: 36px; min-height: 36px; padding: 6px; }
+  .console-actions { gap: 5px; }
+  .console-info { padding: 7px 10px; }
+  .console-info p { display: none; }
+  .console-view-caption { display: none; }
+}
+@media (max-width: 600px) {
+  .zrain-console { width: 100vw; height: 100dvh; border: 0; border-radius: 0; }
+  .console-toolbar { min-height: 54px; }
+  .console-info { min-height: 32px; }
+  .console-view-button { min-height: 30px; padding: 7px 10px; }
+  .console-info p { font-size: 10px; }
+  .console-note { min-height: 26px; padding: 5px; font-size: 9px; }
+  .console-stage { padding: 3px; }
+  .app-icon { width: 43px; height: 43px; flex-basis: 43px; }
+}
+@media (max-height: 570px) {
+  .console-info { display: none; }
+  .console-note { min-height: 22px; font-size: 9px; padding: 3px; }
+  .console-toolbar { min-height: 48px; padding-top: 4px; padding-bottom: 4px; }
+}
+
+/* v4.1.1: Always-visible mode switch in the Console toolbar.
+   It cannot disappear with the optional information strip, including low-height
+   laptop viewports. The app iframe itself is left untouched on toggle. */
+.console-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: clamp(8px, 1.4vw, 18px);
+}
+.console-toolbar .console-product { min-width: 0; }
+.console-toolbar .console-view-switch {
+  justify-self: center;
+  margin: 0;
+  flex-wrap: nowrap;
+  box-shadow: 0 1px 5px rgba(115, 63, 40, .06);
+}
+.console-view-switch .console-view-caption { font-size: 10px; font-weight: 850; letter-spacing: .1em; }
+.console-toolbar .console-view-button { white-space: nowrap; }
+@media (max-width: 790px) {
+  .console-toolbar { gap: 7px; }
+  .console-toolbar .console-view-caption { display: none; }
+  .console-toolbar .console-view-button { padding-inline: 9px; }
+}
+@media (max-width: 660px) {
+  .console-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "product actions" "views views";
+    row-gap: 7px;
+    padding-block: 8px;
+    min-height: 0;
+  }
+  .console-toolbar .console-product { grid-area: product; }
+  .console-toolbar .console-actions { grid-area: actions; }
+  .console-toolbar .console-view-switch {
+    grid-area: views;
+    justify-self: stretch;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff6f0;
+  }
+  .console-toolbar .console-view-caption { display: inline; }
+  .console-toolbar .console-view-button { flex: 1 1 auto; max-width: 160px; }
+}
+@media (max-height: 570px) {
+  /* The info line can disappear, never the view controls. */
+  .console-toolbar .console-view-switch { display: inline-flex; }
+}
+
+/* v4.1.3: One balanced toolbar on desktop and equal-height controls.
+   Previous @max-width 1370px rule forced a second row unnecessarily.
+   Keep controls inside the viewport without touching iframe sizing. */
+.console-toolbar {
+  display: grid;
+  grid-template-columns: minmax(175px, 1fr) auto auto;
+  grid-template-areas: "product views actions";
+  gap: 10px;
+  padding: 10px clamp(10px, 1.3vw, 20px);
+}
+.console-toolbar .console-product { grid-area: product; }
+.console-toolbar .console-view-switch { grid-area: views; justify-self: end; }
+.console-toolbar .console-actions { grid-area: actions; justify-self: end; display: flex; flex-wrap: nowrap; gap: 8px; }
+.console-toolbar .console-tool,
+.console-toolbar .console-store-badge,
+.console-toolbar .console-view-switch {
+  box-sizing: border-box;
+  height: 46px;
+  min-height: 46px;
+  border-radius: 11px;
+}
+.console-toolbar .console-tool {
+  padding: 0 14px;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.console-toolbar .console-close { width: 46px; min-width: 46px; padding: 0; margin: 0; font-size: 19px; }
+.console-toolbar .console-view-switch {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 4px;
+  gap: 3px;
+}
+.console-toolbar .console-view-button { height: 36px; min-height: 36px; padding: 0 11px; font-size: 11px; }
+.console-toolbar .console-store-badge {
+  flex: 0 0 auto;
+  width: 150px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 9px;
+  background: transparent;
+  text-decoration: none;
+  line-height: 1;
+}
+.console-store-badge[hidden] { display: none !important; }
+.console-toolbar .console-store-badge img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+.console-store-badge:hover { filter: brightness(1.08); }
+.console-store-badge:focus-visible { outline: 3px solid #c47758; outline-offset: 2px; }
+
+/* At narrower laptop sizes, keep the view switch by the title.
+   Actions share a single tidy second row, right aligned. */
+@media (max-width: 1100px) and (min-width: 661px) {
+  .console-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "product views" "actions actions";
+    row-gap: 7px;
+  }
+  .console-toolbar .console-actions { justify-self: end; }
+}
+/* On a real phone, icon-only secondary buttons remain equal-height.
+   The download badge uses the same height as the rest of the actions. */
+@media (max-width: 660px) {
+  .console-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "product" "views" "actions";
+    row-gap: 6px;
+  }
+  .console-toolbar .console-view-switch { justify-self: stretch; width: 100%; justify-content: center; }
+  .console-toolbar .console-view-button { height: 32px; min-height: 32px; }
+  .console-toolbar .console-actions { justify-self: stretch; width: 100%; justify-content: center; gap: 5px; }
+  .console-toolbar .console-tool,
+  .console-toolbar .console-store-badge,
+  .console-toolbar .console-view-switch { height: 40px; min-height: 40px; }
+  .console-toolbar .console-tool { padding: 0 7px; min-width: 36px; }
+  .console-toolbar .console-close { width: 40px; min-width: 40px; }
+  .console-toolbar .console-store-badge { width: 130px; }
+}
+@media (max-width: 360px) {
+  .console-toolbar .console-actions { gap: 4px; }
+  .console-toolbar .console-tool { min-width: 34px; padding: 0 5px; }
+  .console-toolbar .console-store-badge { width: 121px; }
+  .console-toolbar .console-close { min-width: 40px; width: 40px; }
+}
+
+
