@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "project": "Zrain Console",
+  "maintainer": "Zrain",
+  "sourceOfTruth": "zrain03/zrain-ecosystem",
+  "note": "Creation dates refer to evidence in the Console repository, not necessarily original upstream authorship.",
+  "files": [
+    {
+      "path": ".github/workflows/checks.yml",
+      "maintainer": "Zrain",
+      "created": "2026-11-04",
+      "createdEvidence": "Created by this Zrain Console audit on 2026-11-04",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": ".gitignore",
+      "maintainer": "Zrain",
+      "created": "2026-11-01",
+      "createdEvidence": "Imported into zrain-console at Git commit 39e2683 on 2026-11-01; earlier Ecosystem origin may exist",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "FILE_PROVENANCE.json",
+      "maintainer": "Zrain",
+      "created": "2026-11-04",
+      "createdEvidence": "Created by this Zrain Console audit on 2026-11-04",
+      "lastUpdated": "2026-11-04",
+      "policy": "strict-json",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "README.md",
+      "maintainer": "Zrain",
+      "created": "2026-11-01",
+      "createdEvidence": "Imported into zrain-console at Git commit 39e2683 on 2026-11-01; earlier Ecosystem origin may exist",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "maintainer": "Zrain",
+      "created": "2026-11-01",
+      "createdEvidence": "Imported into zrain-console at Git commit 39e2683 on 2026-11-01; earlier Ecosystem origin may exist",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "docs/PERSONA_AUDIT.md",
+      "maintainer": "Zrain",
+      "created": "2026-11-04",
+      "createdEvidence": "Created by this Zrain Console audit on 2026-11-04",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "package.json",
+      "maintainer": "Zrain",
+      "created": "2026-11-04",
+      "createdEvidence": "Created by this Zrain Console audit on 2026-11-04",
+      "lastUpdated": "2026-11-04",
+      "policy": "strict-json",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "scripts/check-persona.mjs",
+      "maintainer": "Zrain",
+      "created": "2026-11-04",
+      "createdEvidence": "Created by this Zrain Console audit on 2026-11-04",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "src/console-products.js",
+      "maintainer": "Zrain",
+      "created": "2026-11-01",
+      "createdEvidence": "Imported into zrain-console at Git commit 39e2683 on 2026-11-01; earlier Ecosystem origin may exist",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "src/zrain-console.css",
+      "maintainer": "Zrain",
+      "created": "2026-11-01",
+      "createdEvidence": "Imported into zrain-console at Git commit 39e2683 on 2026-11-01; earlier Ecosystem origin may exist",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "src/zrain-console.js",
+      "maintainer": "Zrain",
+      "created": "2026-11-01",
+      "createdEvidence": "Imported into zrain-console at Git commit 39e2683 on 2026-11-01; earlier Ecosystem origin may exist",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    },
+    {
+      "path": "test/console.test.mjs",
+      "maintainer": "Zrain",
+      "created": "2026-11-04",
+      "createdEvidence": "Created by this Zrain Console audit on 2026-11-04",
+      "lastUpdated": "2026-11-04",
+      "policy": "inline",
+      "purpose": "Zrain Console source, test, documentation, or CI artifact; see file header for responsibilities"
+    }
+  ]
+}

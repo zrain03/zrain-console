@@ -1,7 +1,18 @@
+/*
+ * Fail / File: src/console-products.js
+ * Pembangun / Developer: Zrain
+ * Dicipta / Created: 2026-11-01 (Git introduction 39e2683; import provenance noted separately)
+ * Dikemas kini / Last updated: 2026-11-04
+ * BM: Senaraikan destinasi pratonton yang diketahui; katalog ini diselaraskan dengan source produksi Ecosystem pada 2026-11-04.
+ * EN: List known preview destinations; synchronize this catalog with the Ecosystem production source on 2026-11-04.
+ */
 /**
- * All preview destinations are explicit Zrain websites. External websites are
- * never accepted from query strings, URL fragments or user-provided input.
- * Website embedding depends on the target's own browser/security headers.
+ * BM: ID produk untuk deep link dihadkan kepada kunci eksplisit dalam objek ini.
+ * EN: Deep-link product IDs are limited to explicit keys in this object.
+ * BM: Produk terbitan lain boleh dimasukkan oleh host melalui katalog yang telah disahkan.
+ * EN: The host may register other published products through its validated catalog.
+ * BM: Dasar iframe ditentukan oleh halaman sasaran; jangan cuba memintasnya.
+ * EN: Iframe restrictions belong to the target website; never attempt to bypass them.
  */
 export const PRODUCTS = Object.freeze({
   "guess-the-flag": Object.freeze({
@@ -36,6 +47,38 @@ export const PRODUCTS = Object.freeze({
     icon: "/zrain-logo.webp",
     description: "Monitor public HTTPS services, inspect incidents and view uptime diagnostics.",
     webUrl: "https://zrain-monitor.web.app/"
+  }),
+  // BM: Lima keluarga Tools ialah aplikasi asal dengan hosting masing-masing, bukan halaman tiruan.
+  // EN: The five Tools families link to their independently hosted applications, not simulated pages.
+  "zrain-image-tools": Object.freeze({
+    name: "Zrain Image Tools", kind: "web",
+    icon: "/zrain-logo.webp",
+    description: "Convert, inspect, improve and create with images.",
+    webUrl: "https://zrain-image-tools.pages.dev/"
+  }),
+  "zrain-pdf-tools": Object.freeze({
+    name: "Zrain PDF Tools", kind: "web",
+    icon: "/zrain-logo.webp",
+    description: "Edit, merge, organize and watermark PDF pages.",
+    webUrl: "https://zrain-pdf-tools.pages.dev/"
+  }),
+  "zrain-document-tools": Object.freeze({
+    name: "Zrain Document Tools", kind: "web",
+    icon: "/zrain-logo.webp",
+    description: "Convert files, compare text, extract OCR and clean CSV data.",
+    webUrl: "https://zrain-document-tools.pages.dev/"
+  }),
+  "zrain-developer-tools": Object.freeze({
+    name: "Zrain Developer Tools", kind: "web",
+    icon: "/zrain-logo.webp",
+    description: "JSON, Markdown, QR codes, passwords and UTM campaign links.",
+    webUrl: "https://zrain-developer-tools.pages.dev/"
+  }),
+  "zrain-productivity-tools": Object.freeze({
+    name: "Zrain Productivity Tools", kind: "web",
+    icon: "/zrain-logo.webp",
+    description: "Invoice generation, text utilities and a focus timer.",
+    webUrl: "https://zrain-productivity-tools.pages.dev/"
   }),
   "zrain-ui": Object.freeze({
     name: "Zrain UI", kind: "web",

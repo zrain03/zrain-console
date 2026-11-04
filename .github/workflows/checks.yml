@@ -1,0 +1,26 @@
+# Fail / File: .github/workflows/checks.yml
+# Pembangun / Developer: Zrain
+# Dicipta / Created: 2026-11-04
+# Dikemas kini / Last updated: 2026-11-04
+# BM: Jalankan ujian Console tanpa dependency berbayar selepas setiap push/PR.
+# EN: Run Console tests without paid dependencies on every push/PR.
+name: Zrain Console source checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      # BM: Checkout source terkini tanpa mendapatkan token tulis.
+      # EN: Check out the exact source without write-scoped credentials.
+      - uses: actions/checkout@v4
+      # BM: Node 22 melaksanakan ujian built-in tanpa library baharu.
+      # EN: Node 22 runs built-in tests without additional libraries.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test

@@ -1,0 +1,9 @@
+{
+  "name": "zrain-console",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Documented source snapshot and regression tests for the Zrain Ecosystem Console",
+  "scripts": {
+    "test": "node --test test/*.test.mjs && node scripts/check-persona.mjs"
+  }
+}

@@ -1,3 +1,9 @@
+# Fail / File: .gitignore
+# Pembangun / Developer: Zrain
+# Dicipta / Created: 2026-11-01 (Git introduction 39e2683; import provenance noted separately)
+# Dikemas kini / Last updated: 2026-11-04
+# BM: Abaikan fail sementara agar repository hanya menyimpan source dan ujian.
+# EN: Ignore temporary files so the repository stores only source and tests.
 node_modules/
 .DS_Store
 Thumbs.db

@@ -1,3 +1,12 @@
+<!--
+Fail / File: README.md
+Pembangun / Developer: Zrain
+Dicipta / Created: 2026-11-01 (Git introduction 39e2683; import provenance noted separately)
+Dikemas kini / Last updated: 2026-11-04
+BM: Panduan Console snapshot, kontrak integrasi dan langkah ujian yang tidak memerlukan backend tambahan.
+EN: Console snapshot guide, integration contracts and tests requiring no additional backend.
+-->
+
 # Zrain Console
 
 **Explore apps without leaving the ecosystem.**
@@ -22,7 +31,7 @@ Each demo launches the actual Zrain Console in the Ecosystem. There is no duplic
 - Reload, fullscreen, close, and Open in new tab
 - Google Play badge for supported games
 - Accessible native HTML dialog and focus restoration
-- Static product fallback plus published product catalog
+- 11 known built-in products, plus the host-validated published product catalog
 - Local same-origin preview for Zrain UI Showcase
 - No shared accounts or additional backend
 
@@ -34,8 +43,12 @@ Each demo launches the actual Zrain Console in the Ecosystem. There is no duplic
 | src/console-products.js | Built-in product definitions |
 | src/zrain-console.css | Console-specific styles extracted from the Ecosystem |
 | docs/ARCHITECTURE.md | Explanation of the implementation and limits |
+| docs/PERSONA_AUDIT.md | Evidence-based audit, open risks and sync boundaries |
+| FILE_PROVENANCE.json | File-level date, author and format-specific evidence |
+| test/console.test.mjs | Behavior and source contract regression checks |
+| scripts/check-persona.mjs | Zero-dependency metadata and inventory check |
 
-The maintained production implementation is in [zrain03/zrain-ecosystem](https://github.com/zrain03/zrain-ecosystem). The source files here are an **exported snapshot** of that working feature. They depend on the host HTML and assets and are not advertised as a standalone npm package.
+The maintained production implementation is in [zrain03/zrain-ecosystem](https://github.com/zrain03/zrain-ecosystem). **This repository is not deployed independently.** The source files here are an **exported snapshot** of that working feature. They depend on the host HTML and assets and are not advertised as a standalone npm package.
 
 ## Integration example
 
@@ -54,3 +67,30 @@ Some apps or identity providers forbid iframe embedding. Zrain Console respects 
 ## Contact
 
 [zrain.dev@gmail.com](mailto:zrain.dev@gmail.com)
+
+## Local testing (Windows PowerShell / cross-platform)
+
+The snapshot uses Node.js 22+ for tests only. There are no npm runtime dependencies and no paid APIs.
+
+```powershell
+cd "$env:USERPROFILE\Downloads\Zrain\Projects\zrain-console"
+npm test
+```
+
+`npm test` runs functional tests and the Zrain Persona inventory audit. It does not run the live site or replace testing of the actual host at https://zrain.web.app.
+
+## Source of truth and safe updates
+
+- `src/zrain-console.js` corresponds to Ecosystem `public/zrain-console.js`; its **executable behavior** remains unchanged.
+- `src/console-products.js` mirrors all **11 known product IDs** from the Ecosystem production catalog as checked on 2026-11-04.
+- `src/zrain-console.css` is the extracted Console portion of Ecosystem `public/style.css`.
+- To change real website behavior, modify and test the **Zrain Ecosystem** repository; updates to this exported snapshot alone do not deploy.
+- This audit deliberately does not add a redundant Console hosting service, auth provider or database.
+
+## Scope and security limits
+
+The Console must receive **normalized, published catalog records** from the host (`public/product-catalog-client.js` validates HTTPS URLs, slugs and accepted actions). Query-string `?console=` accepts built-in product IDs only. Remote sites may refuse iframe embedding; the Console offers Open in new tab and does not bypass target authentication or security policies.
+
+## Review and handoff
+
+See [Persona audit](docs/PERSONA_AUDIT.md) for recorded evidence, exclusions, integration risks and acceptance checks.

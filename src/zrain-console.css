@@ -1,6 +1,16 @@
-﻿:root { --zr-navy:#172433; --zr-terra:#b95136; --zr-terra-deep:#963d28; }
+/*
+ * Fail / File: src/zrain-console.css
+ * Pembangun / Developer: Zrain
+ * Dicipta / Created: 2026-11-01 (Git introduction 39e2683; import provenance noted separately)
+ * Dikemas kini / Last updated: 2026-11-04
+ * BM: Gaya modal Console yang diekstrak daripada CSS produksi Ecosystem; hanya metadata/komen ditambah.
+ * EN: Console dialog styles extracted from production Ecosystem CSS; metadata and comments only.
+ */
+:root { --zr-navy:#172433; --zr-terra:#b95136; --zr-terra-deep:#963d28; }
 /* Zrain Console v4.1.0. Every hosted product starts in Mobile View.
    Only the presentation is scaled to fit, not the browser zoom. */
+/* BM: Dialog modal menduduki viewport tetapi mengekalkan sempadan, warna dan kebolehskrolan sendiri.
+   EN: The modal occupies the viewport while retaining its own border, palette and scroll isolation. */
 .zrain-console {
   position: fixed;
   inset: 0;
@@ -41,6 +51,8 @@ body:has(.zrain-console[open]) { overflow: hidden; }
 .console-info a:hover { text-decoration: underline; }
 
 /* Available on every web edition, including games. Mobile is the default. */
+/* BM: Butang mod memberikan maklum balas aria-pressed yang diperbaharui oleh JavaScript.
+   EN: Mode buttons reflect aria-pressed state updated by JavaScript. */
 .console-view-switch { display: inline-flex; align-items: center; flex: 0 0 auto; gap: 4px; padding: 4px; border: 1px solid #e9d7ca; border-radius: 11px; background: #fff; }
 .console-view-caption { padding: 0 8px; font-size: 9px; font-weight: 850; letter-spacing: .09em; color: #926c5c; }
 .console-view-button { min-height: 32px; padding: 7px 13px; border: 0; border-radius: 7px; color: #806455; background: transparent; font-size: 11px; font-weight: 750; cursor: pointer; }
@@ -48,6 +60,8 @@ body:has(.zrain-console[open]) { overflow: hidden; }
 .console-view-button:not([aria-pressed="true"]):hover { background: #fff0e6; }
 .console-view-button:focus-visible { outline: 3px solid #d99b80; outline-offset: 2px; }
 
+/* BM: Stage memusatkan iframe yang diskalakan; aplikasi sasaran tidak dimanipulasi.
+   EN: The stage centers a scaled iframe; the target application is not modified. */
 .console-stage { min-height: 0; min-width: 0; flex: 1 1 auto; padding: 6px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(145deg, #fff4ec, #fffaf6 48%, #f6e7dd); }
 .console-viewer { flex: none; position: relative; overflow: hidden; border-radius: 14px; border: 1px solid #e1c6b5; background: #fff; box-shadow: 0 10px 34px rgba(75,45,30,.10); }
 .console-viewer iframe { display: block; position: absolute; top: 0; left: 0; padding: 0; margin: 0; border: 0; background: #fff; transform-origin: top left; }
@@ -57,6 +71,8 @@ body:has(.zrain-console[open]) { overflow: hidden; }
 .console-note { flex: 0 0 auto; min-height: 31px; padding: 8px 12px; text-align: center; color: #8b807a; font-size: 10px; line-height: 1.35; background: #fffaf6; border-top: 1px solid #eedfd4; }
 .console-note strong { color: #a74d34; }
 .console-shell:fullscreen { width: 100vw; height: 100dvh; border: 0; background: #fffaf6; }
+/* BM: Susunan saiz skrin kecil mengekalkan kebolehgunaan toolbar.
+   EN: Small-screen layout preserves toolbar usability. */
 @media (max-width: 780px) {
   .console-tool .tool-label { display: none; }
   .console-toolbar { padding: 9px 10px; min-height: 59px; gap: 7px; }
@@ -109,6 +125,8 @@ body:has(.zrain-console[open]) { overflow: hidden; }
   .console-toolbar .console-view-caption { display: none; }
   .console-toolbar .console-view-button { padding-inline: 9px; }
 }
+/* BM: Pada telefon, kawalan menyusun semula tanpa membuang tindakan penting.
+   EN: On phones, controls rearrange without hiding essential actions. */
 @media (max-width: 660px) {
   .console-toolbar {
     grid-template-columns: minmax(0, 1fr) auto;
